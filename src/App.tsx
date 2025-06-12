@@ -28,7 +28,7 @@ function App() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // API configuration
-  const API_BASE_URL = "http://192.168.45.112:3001";
+  const API_BASE_URL = "https://chat-websocket-backend-t59q.onrender.com";
 
   // Check for existing user session on load
   useEffect(() => {

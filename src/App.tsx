@@ -27,6 +27,9 @@ function App() {
   const [connectionError, setConnectionError] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // API configuration
+  const API_BASE_URL = "http://192.168.45.112:3001";
+
   // Check for existing user session on load
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -45,7 +48,7 @@ function App() {
     if (!user) return; // Only connect when user is authenticated
     
     // Create socket with connection options
-    const newSocket = io('http://192.168.45.112:3000/', {
+    const newSocket = io(`${API_BASE_URL}/`, {
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
       transports: ['websocket', 'polling'] // Try WebSocket first, then fall back to polling
@@ -95,7 +98,7 @@ function App() {
       console.log('Disconnecting socket');
       newSocket.disconnect();
     };
-  }, [user]);
+  }, [user, API_BASE_URL]);
 
   // Auto-scroll to bottom of messages
   useEffect(() => {

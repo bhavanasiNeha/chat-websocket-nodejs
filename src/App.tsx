@@ -49,13 +49,13 @@ function App() {
     if (!user) return; // Only connect when user is authenticated
     
     // Create socket with connection options
-    const newSocket = io(`${API_BASE_URL}/`, {
+    const newSocket = io(API_BASE_URL, {
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
-      transports: ['websocket', 'polling'],
-      secure: true,
-      rejectUnauthorized: false,
-      path: '/socket.io/',
+      transports: ['polling', 'websocket'],
+      autoConnect: true,
+      forceNew: true,
+      timeout: 10000,
       withCredentials: true
     });
     

@@ -29,6 +29,7 @@ function App() {
 
   // API configuration
   const API_BASE_URL = "https://chat-websocket-backend-t59q.onrender.com";
+  // const API_BASE_URL = "http://localhost:3001";
 
   // Check for existing user session on load
   useEffect(() => {

@@ -14,7 +14,8 @@ export const Auth = ({ onSignIn }: AuthProps) => {
   const [loading, setLoading] = useState(false);
 
   // API base URL - must match the one used in App.tsx
-  const API_BASE_URL = "https://chat-websocket-backend-t59q.onrender.com";
+  const API_BASE_URL = "wss://chat-websocket-backend-t59q.onrender.com";
+  // const API_BASE_URL = "http://localhost:3001";
 
   const resetForm = () => {
     setUsername("");

@@ -52,7 +52,11 @@ function App() {
     const newSocket = io(`${API_BASE_URL}/`, {
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
-      transports: ['websocket', 'polling'] // Try WebSocket first, then fall back to polling
+      transports: ['websocket', 'polling'],
+      secure: true,
+      rejectUnauthorized: false,
+      path: '/socket.io/',
+      withCredentials: true
     });
     
     setSocket(newSocket);
